@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "showLoadingIndicator": true,
   "id": "4e7323de-015b-4415-89a5-0e86bb3d4ea4",
-  "packageName": "com.microsoft.teams.videopp",
+  "packageName": "com.epam.teams.videoapp",
   "developer": {
     "name": "EPAM",
     "websiteUrl": "https://github.com/dzmitryrozberh/teams-video-app",
