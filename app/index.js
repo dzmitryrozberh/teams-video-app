@@ -18,9 +18,21 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
     (videoFrame.height * videoFrame.width) /
       Math.max(1, appliedEffect.proportion) - 4;
   let rgbFrame = yuv420ProgPlanarToRgb( videoFrame.data, videoFrame.width, videoFrame.height);
+  let canvas = document.getElementById("testCanvas");
+  let ctx = canvas.getContext("2d");
+  let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  let data = imageData.data;
+  let shift = 0;
+  for (var i = 0; i < data.length; i += 4) {
+      data[i]     = rgbFrame[shift];     // red
+      data[i + 1] = rgbFrame[shift + 1]; // green
+      data[i + 2] = rgbFrame[shift + 2]; // blue
+      shift += 3;
+    }
+  ctx.putImageData(imageData, 0, 0);
   for (let i = 1; i < maxLen; i += 4) {
     //smaple effect just change the value to 100, which effect some pixel value of video frame
-    videoFrame.data[i + 1] = appliedEffect.pixelValue;
+    videoFrame.data[i + 1] = appliedEffect.pixelValue;+69999999999
   }
 
   //send notification the effect processing is finshed.
