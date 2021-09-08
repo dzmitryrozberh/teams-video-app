@@ -8,9 +8,9 @@ function yuv420ProgPlanarToRgb(yuv, width, height) {
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       const yy = yuv[y * width + x];
-      const colorIndex = Math.floor(y / 2) * halfWidth + Math.floor(x / 2);
+      const colorIndex = (Math.floor(y / 2) * halfWidth + Math.floor(x / 2)) * 2;
       const uu = yuv[uStart + colorIndex] - 128;
-      const vv = yuv[vStart + colorIndex] - 128;
+      const vv = yuv[uStart + colorIndex + 1] - 128;
 
       let r = yy + 1.402 * vv;
       let g = yy - 0.344 * uu - 0.714 * vv;
