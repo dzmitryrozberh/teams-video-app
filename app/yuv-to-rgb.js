@@ -16,9 +16,9 @@ function yuv420ProgPlanarToRgb(yuv, width, height) {
       let g = yy - 0.344 * uu - 0.714 * vv;
       let b = yy + 1.772 * uu;
 
-      rgb.push(r)
-      rgb.push(g)
-      rgb.push(b)
+      rgb.push(Math.trunc(r))
+      rgb.push(Math.trunc(g))
+      rgb.push(Math.trunc(b))
     }
   }
 
