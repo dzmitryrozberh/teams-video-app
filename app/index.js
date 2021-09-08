@@ -27,6 +27,7 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
       data[i]     = rgbFrame[shift];     // red
       data[i + 1] = rgbFrame[shift + 1]; // green
       data[i + 2] = rgbFrame[shift + 2]; // blue
+       data[i + 3] = 255;
       shift += 3;
     }
   ctx.putImageData(imageData, 0, 0);
